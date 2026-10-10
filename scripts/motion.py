@@ -326,11 +326,11 @@ def lottie(kind, sc):
     fr = lambda s: round(s * FPS)
     if kind == "reveal":
         op = fr(3.2)
-        fade = {"a": 1, "k": [kf(0, [100]), kf(fr(2.6), [100], EASE_OUT), kf(fr(2.95), [0], hold=True), kf(op, [0])]}
+        fade = {"a": 1, "k": [kf(0, [100], hold=True), kf(fr(2.6), [100], EASE_OUT), kf(fr(2.95), [0], hold=True), kf(op, [0])]}
         sb = {"a": 1, "k": [kf(0, [0, 0, 100], EASE_OUT), kf(fr(0.6), [100, 100, 100], hold=True), kf(op, [100, 100, 100])]}
         ss = {"a": 1, "k": [kf(0, [0, 0, 100], hold=True), kf(fr(0.23), [0, 0, 100], EASE_OUT),
                             kf(fr(0.6), [100, 100, 100], hold=True), kf(op, [100, 100, 100])]}
-        wo = {"a": 1, "k": [kf(0, [0], hold=True), kf(fr(0.6), [0], EASE_OUT), kf(fr(0.97), [100]),
+        wo = {"a": 1, "k": [kf(0, [0], hold=True), kf(fr(0.6), [0], EASE_OUT), kf(fr(0.97), [100], hold=True),
                             kf(fr(2.6), [100], EASE_OUT), kf(fr(2.95), [0], hold=True), kf(op, [0])]}
         wp = {"a": 1, "k": [kf(0, [-sc["dx"], 0, 0], hold=True), kf(fr(0.6), [-sc["dx"], 0, 0], EASE_OUT),
                             kf(fr(0.97), [0, 0, 0], hold=True), kf(op, [0, 0, 0])]}
