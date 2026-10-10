@@ -1,0 +1,12 @@
+GIMP Palette
+Name: OpenInfinity
+Columns: 4
+#
+  0   0   0	Ink
+255 255 255	Paper
+ 24  24  27	Graphite
+245 245 244	Mist
+ 11  18  32	Midnight
+255  77   0	Signal
+ 36  64 255	Electric
+200 245  96	Lime

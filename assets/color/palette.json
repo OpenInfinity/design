@@ -1,0 +1,186 @@
+[
+  {
+    "id": "ink",
+    "name": {
+      "zh": "墨",
+      "en": "Ink"
+    },
+    "hex": "#000000",
+    "rgb": [
+      0,
+      0,
+      0
+    ],
+    "cmyk": [
+      0,
+      0,
+      0,
+      100
+    ],
+    "role": {
+      "zh": "主色：标志、正文",
+      "en": "Primary: logo, text"
+    }
+  },
+  {
+    "id": "paper",
+    "name": {
+      "zh": "白",
+      "en": "Paper"
+    },
+    "hex": "#FFFFFF",
+    "rgb": [
+      255,
+      255,
+      255
+    ],
+    "cmyk": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "role": {
+      "zh": "主色：底色",
+      "en": "Primary: background"
+    }
+  },
+  {
+    "id": "graphite",
+    "name": {
+      "zh": "石墨",
+      "en": "Graphite"
+    },
+    "hex": "#18181B",
+    "rgb": [
+      24,
+      24,
+      27
+    ],
+    "cmyk": [
+      11,
+      11,
+      0,
+      89
+    ],
+    "role": {
+      "zh": "界面深色文字",
+      "en": "UI dark text"
+    }
+  },
+  {
+    "id": "mist",
+    "name": {
+      "zh": "雾白",
+      "en": "Mist"
+    },
+    "hex": "#F5F5F4",
+    "rgb": [
+      245,
+      245,
+      244
+    ],
+    "cmyk": [
+      0,
+      0,
+      0,
+      4
+    ],
+    "role": {
+      "zh": "界面浅色底",
+      "en": "UI light surface"
+    }
+  },
+  {
+    "id": "midnight",
+    "name": {
+      "zh": "午夜",
+      "en": "Midnight"
+    },
+    "hex": "#0B1220",
+    "rgb": [
+      11,
+      18,
+      32
+    ],
+    "cmyk": [
+      66,
+      44,
+      0,
+      87
+    ],
+    "role": {
+      "zh": "深色模式、演示",
+      "en": "Dark mode, slides"
+    }
+  },
+  {
+    "id": "signal",
+    "name": {
+      "zh": "信号橙",
+      "en": "Signal"
+    },
+    "hex": "#FF4D00",
+    "rgb": [
+      255,
+      77,
+      0
+    ],
+    "cmyk": [
+      0,
+      70,
+      100,
+      0
+    ],
+    "role": {
+      "zh": "强调色（可选）",
+      "en": "Accent (optional)"
+    }
+  },
+  {
+    "id": "electric",
+    "name": {
+      "zh": "电光蓝",
+      "en": "Electric"
+    },
+    "hex": "#2440FF",
+    "rgb": [
+      36,
+      64,
+      255
+    ],
+    "cmyk": [
+      86,
+      75,
+      0,
+      0
+    ],
+    "role": {
+      "zh": "强调色（可选）",
+      "en": "Accent (optional)"
+    }
+  },
+  {
+    "id": "lime",
+    "name": {
+      "zh": "青柠",
+      "en": "Lime"
+    },
+    "hex": "#C8F560",
+    "rgb": [
+      200,
+      245,
+      96
+    ],
+    "cmyk": [
+      18,
+      0,
+      61,
+      4
+    ],
+    "role": {
+      "zh": "强调色（可选）",
+      "en": "Accent (optional)"
+    }
+  }
+]

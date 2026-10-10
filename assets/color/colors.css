@@ -1,0 +1,10 @@
+:root {
+  --oi-ink: #000000; /* Ink · 墨 */
+  --oi-paper: #FFFFFF; /* Paper · 白 */
+  --oi-graphite: #18181B; /* Graphite · 石墨 */
+  --oi-mist: #F5F5F4; /* Mist · 雾白 */
+  --oi-midnight: #0B1220; /* Midnight · 午夜 */
+  --oi-signal: #FF4D00; /* Signal · 信号橙 */
+  --oi-electric: #2440FF; /* Electric · 电光蓝 */
+  --oi-lime: #C8F560; /* Lime · 青柠 */
+}
