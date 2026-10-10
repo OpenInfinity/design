@@ -17,6 +17,21 @@
 <link rel="icon" href="assets/app-icon/web/favicon.ico" sizes="48x48">
 <link rel="icon" href="assets/app-icon/web/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/app-icon/web/apple-touch-icon.png">
+<script>
+// language before first paint: ?lang= > the visitor's last choice > system language (Chinese -> zh, anything else -> en)
+(function () {
+  var r = document.documentElement, l;
+  try { l = localStorage.getItem("oi-lang"); } catch (e) {}
+  var q = new URLSearchParams(location.search).get("lang");
+  if (q === "zh" || q === "en") l = q;
+  if (l !== "zh" && l !== "en") {
+    var n = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase();
+    l = n.indexOf("zh") === 0 ? "zh" : "en";
+  }
+  r.setAttribute("data-lang", l);
+  r.lang = l === "zh" ? "zh-CN" : "en";
+})();
+</script>
 <link rel="stylesheet" href="styles.css">
 <script src="data.js"></script>
 </head>

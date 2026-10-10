@@ -5,9 +5,6 @@
   var KEY = "oi-lang";
   var TITLES = { zh: "OpenInfinity 设计资源", en: "OpenInfinity Design Resources" };
 
-  function getStored() {
-    try { return localStorage.getItem(KEY); } catch (e) { return null; }
-  }
   function store(v) {
     try { localStorage.setItem(KEY, v); } catch (e) { /* private mode */ }
   }
@@ -16,8 +13,8 @@
     root.lang = lang === "zh" ? "zh-CN" : "en";
     document.title = TITLES[lang];
   }
-  var param = new URLSearchParams(location.search).get("lang");
-  setLang(param === "en" || param === "zh" ? param : getStored() === "en" ? "en" : "zh");
+  // the inline head script already picked the language (?lang= > last choice > system language)
+  setLang(root.getAttribute("data-lang") === "en" ? "en" : "zh");
   document.getElementById("lang").addEventListener("click", function () {
     var next = root.getAttribute("data-lang") === "zh" ? "en" : "zh";
     setLang(next);
