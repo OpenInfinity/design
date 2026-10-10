@@ -1,0 +1,6 @@
+# OpenInfinity — every crawler is welcome, including search engines and AI crawlers
+# (for example Googlebot, Bingbot, Baiduspider, GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot).
+User-agent: *
+Allow: /
+
+Sitemap: https://design.open-infinity.com/sitemap.xml

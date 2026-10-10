@@ -1,0 +1,37 @@
+# OpenInfinity Design
+
+> Brand and design resources for OpenInfinity: logo, app icons, colour, typography, motion, templates and brand guidelines. Every file can be downloaded directly.
+
+OpenInfinity 的品牌与设计资源：标志、应用图标、色彩、字体、动效、模板和品牌规范，所有文件均可直接下载。
+
+## Logo
+
+The mark is two "leaves" — each a circle with one square corner — in the golden ratio 1 : 0.618, meeting corner to corner on a 45° diagonal to form an infinity sign. Black on white is primary; white on black is the reverse. The wordmark is Geist Medium at −2.5% tracking, outlined. Clear space is 1X on every side (X = small-leaf radius = 0.191 × mark width); minimum size 16 px / 6 mm.
+
+- [Mark, black (SVG)](https://design.open-infinity.com/assets/logo/mark/openinfinity-mark-black.svg)
+- [Horizontal lockup, black (SVG)](https://design.open-infinity.com/assets/logo/lockup-horizontal/openinfinity-lockup-horizontal-black.svg)
+- [Vertical lockup, black (SVG)](https://design.open-infinity.com/assets/logo/lockup-vertical/openinfinity-lockup-vertical-black.svg)
+- [Wordmark, black (SVG)](https://design.open-infinity.com/assets/logo/wordmark/openinfinity-wordmark-black.svg)
+
+## Colour
+
+- Ink / 墨: #000000 — Primary: logo, text
+- Paper / 白: #FFFFFF — Primary: background
+- Graphite / 石墨: #18181B — UI dark text
+- Mist / 雾白: #F5F5F4 — UI light surface
+- Midnight / 午夜: #0B1220 — Dark mode, slides
+- Signal / 信号橙: #FF4D00 — Accent (optional)
+- Electric / 电光蓝: #2440FF — Accent (optional)
+- Lime / 青柠: #C8F560 — Accent (optional)
+
+## Typography
+
+- Geist (Latin, numerals, wordmark) and Geist Mono (code) — SIL Open Font License 1.1
+- Source Han Sans / Noto Sans SC (Chinese) — SIL Open Font License 1.1
+
+## Documents
+
+- [Brand guidelines (English, PDF)](https://design.open-infinity.com/assets/guidelines/openinfinity-brand-guidelines-en.pdf)
+- [品牌规范（中文，PDF）](https://design.open-infinity.com/assets/guidelines/openinfinity-brand-guidelines-zh.pdf)
+- [Trademark terms](https://github.com/OpenInfinity/design/blob/main/TRADEMARK.md)
+- [Complete brand kit (ZIP)](https://github.com/OpenInfinity/design/releases/latest/download/OpenInfinity-Brand-Kit.zip)
