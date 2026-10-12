@@ -27,7 +27,7 @@ OpenInfinity 的品牌与设计资源：标志、应用图标、色彩、字体�
 | `assets/social/` | 头像、GitHub 预览图、Open Graph、X 与 LinkedIn 横幅 |
 | `assets/guidelines/` | 品牌规范 PDF（中 / 英） |
 | `source/` | 标志与字标的矢量母版（字标已转曲） |
-| `site/` | 网站源码 |
+| `site/` | 网站源码（`index.html` 是中英双语模板，`scripts/pages.py` 由它生成英文版 `/` 与中文版 `/zh/`） |
 | `scripts/` | 资源生成脚本 |
 
 ### 重新生成
@@ -72,7 +72,7 @@ Brand and design resources for OpenInfinity: logo, app icons, color, type, motio
 | `assets/social/` | Avatars, GitHub preview, Open Graph, X and LinkedIn banners |
 | `assets/guidelines/` | Brand guideline PDFs (Chinese / English) |
 | `source/` | Vector masters for the mark and the outlined wordmark |
-| `site/` | Website source |
+| `site/` | Website source (`index.html` is a bilingual template; `scripts/pages.py` builds the English page at `/` and the Chinese page at `/zh/` from it) |
 | `scripts/` | Asset build scripts |
 
 ### Rebuilding

@@ -3,14 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>OpenInfinity 设计资源 · Design Resources</title>
-<meta name="description" content="OpenInfinity 的标志、应用图标、色彩、字体、动效与模板，全部可直接下载。Logos, app icons, color, type, motion and templates for OpenInfinity.">
+<title class="zh">OpenInfinity 设计资源</title>
+<title class="en">OpenInfinity Design Resources</title>
+<meta class="zh" name="description" content="OpenInfinity 的标志、应用图标、色彩、字体、动效与模板，全部可直接下载。">
+<meta class="en" name="description" content="Logos, app icons, color, type, motion and templates for OpenInfinity, every file ready to download.">
 <meta property="og:title" content="OpenInfinity Design">
-<meta property="og:description" content="Logos, app icons, color, type, motion and templates for OpenInfinity.">
+<meta class="zh" property="og:description" content="OpenInfinity 的标志、应用图标、色彩、字体、动效与模板。">
+<meta class="en" property="og:description" content="Logos, app icons, color, type, motion and templates for OpenInfinity.">
 <meta property="og:image" content="https://design.open-infinity.com/assets/social/og-image-light.png">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://design.open-infinity.com/">
-<link rel="canonical" href="https://design.open-infinity.com/">
+<meta class="zh" property="og:url" content="https://design.open-infinity.com/zh/">
+<meta class="en" property="og:url" content="https://design.open-infinity.com/">
+<meta class="zh" property="og:locale" content="zh_CN">
+<meta class="en" property="og:locale" content="en_US">
+<link class="zh" rel="canonical" href="https://design.open-infinity.com/zh/">
+<link class="en" rel="canonical" href="https://design.open-infinity.com/">
+<link rel="alternate" hreflang="en" href="https://design.open-infinity.com/">
+<link rel="alternate" hreflang="zh-CN" href="https://design.open-infinity.com/zh/">
+<link rel="alternate" hreflang="x-default" href="https://design.open-infinity.com/">
 <link rel="sitemap" href="sitemap.xml">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#000000">
@@ -18,18 +28,21 @@
 <link rel="icon" href="assets/app-icon/web/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/app-icon/web/apple-touch-icon.png">
 <script>
-// language before first paint: ?lang= > the visitor's last choice > system language (Chinese -> zh, anything else -> en)
+// English lives at / and Chinese at /zh/ (scripts/pages.py builds both from this template).
+// Before first paint, send visitors to their language: their own choice (the language switch) >
+// system language (Chinese -> zh, anything else -> en). Crawlers and headless renderers stay put,
+// so both versions remain indexable and printable.
 (function () {
-  var r = document.documentElement, l;
-  try { l = localStorage.getItem("oi-lang"); } catch (e) {}
-  var q = new URLSearchParams(location.search).get("lang");
-  if (q === "zh" || q === "en") l = q;
-  if (l !== "zh" && l !== "en") {
+  var r = document.documentElement, here = r.getAttribute("data-lang"), want = null;
+  if (/bot|crawl|spider|slurp|preview|lighthouse|headless/i.test(navigator.userAgent)) return;
+  try { want = localStorage.getItem("oi-lang"); } catch (e) {}
+  if (want !== "zh" && want !== "en") {
     var n = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase();
-    l = n.indexOf("zh") === 0 ? "zh" : "en";
+    want = n.indexOf("zh") === 0 ? "zh" : "en";
   }
-  r.setAttribute("data-lang", l);
-  r.lang = l === "zh" ? "zh-CN" : "en";
+  if (want === here) return;
+  r.style.visibility = "hidden";
+  location.replace(new URL(want === "zh" ? "zh/" : "../", location.href).href + location.hash);
 })();
 </script>
 <link rel="stylesheet" href="styles.css">
@@ -49,7 +62,7 @@
 <a href="#usage"><span class="zh">使用规范</span><span class="en">Usage</span></a>
 <a href="#downloads"><span class="zh">下载</span><span class="en">Downloads</span></a>
 </nav>
-<button class="lang" type="button" id="lang" aria-label="切换语言 / Switch language"><span class="zh">EN</span><span class="en">中文</span></button>
+<a class="lang" id="lang" href="zh/" hreflang="zh-CN" data-lang="zh" aria-label="切换到中文"><span class="zh">EN</span><span class="en">中文</span></a>
 </div>
 </header>
 

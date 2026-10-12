@@ -4,6 +4,8 @@
 
 OpenInfinity 的品牌与设计资源：标志、应用图标、色彩、字体、动效、模板和品牌规范，所有文件均可直接下载。
 
+Pages: [English](https://design.open-infinity.com/) · [中文](https://design.open-infinity.com/zh/)
+
 ## Logo
 
 The mark is two "leaves" — each a circle with one square corner — in the golden ratio 1 : 0.618, meeting corner to corner on a 45° diagonal to form an infinity sign. Black on white is primary; white on black is the reverse. The wordmark is Geist Medium at −2.5% tracking, outlined. Clear space is 1X on every side (X = small-leaf radius = 0.191 × mark width); minimum size 16 px / 6 mm.

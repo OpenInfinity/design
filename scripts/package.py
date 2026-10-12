@@ -1,19 +1,21 @@
 #!/usr/bin/env python3
 """Print the guideline PDFs from the site and pack the release archives into dist/.
 
-1. Assemble the site (site/ + assets/) in .cache/_site
-2. Print index.html?lang=zh|en to assets/guidelines/*.pdf with headless Chrome
+1. Assemble the site (site/ + assets/, one page per language) in .cache/_site
+2. Print zh/index.html and index.html (en) to assets/guidelines/*.pdf with headless Chrome
 3. Refresh assets/manifest.json and site/data.js
 4. Zip the brand kit and per-category archives into dist/
 """
 import shutil
 import subprocess
 import sys
+import time
 import zipfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from common import CACHE, DIST, OUT, ROOT  # noqa: E402
+from pages import build_pages  # noqa: E402
 
 CHROME = [
     "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
@@ -29,6 +31,7 @@ def assemble():
         shutil.rmtree(site)
     shutil.copytree(ROOT / "site", site)
     shutil.copytree(OUT, site / "assets")
+    build_pages(site)
     return site
 
 
@@ -41,10 +44,16 @@ def print_guidelines(site):
     out.mkdir(parents=True, exist_ok=True)
     for lang in ("zh", "en"):
         pdf = out / f"openinfinity-brand-guidelines-{lang}.pdf"
-        subprocess.run([chrome, "--headless=new", "--disable-gpu", "--no-pdf-header-footer", "--hide-scrollbars",
-                        "--virtual-time-budget=8000", f"--print-to-pdf={pdf}",
-                        (site / "index.html").as_uri() + f"?lang={lang}"],
-                       check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        started = time.time()
+        try:
+            subprocess.run([chrome, "--headless=new", "--disable-gpu", "--no-pdf-header-footer", "--hide-scrollbars",
+                            "--virtual-time-budget=8000", f"--print-to-pdf={pdf}",
+                            (site / ("zh/index.html" if lang == "zh" else "index.html")).as_uri()],
+                           check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=120)
+        except subprocess.TimeoutExpired:
+            # Chrome sometimes writes the PDF and then never exits
+            if not pdf.exists() or pdf.stat().st_mtime < started:
+                raise
         print("·", pdf.name, pdf.stat().st_size // 1024, "KB")
 
 

@@ -2,23 +2,12 @@
   "use strict";
   var data = window.OI_DATA || { files: [], palette: [], headSnippet: "" };
   var root = document.documentElement;
-  var KEY = "oi-lang";
-  var TITLES = { zh: "OpenInfinity 设计资源", en: "OpenInfinity Design Resources" };
-
-  function store(v) {
-    try { localStorage.setItem(KEY, v); } catch (e) { /* private mode */ }
-  }
-  function setLang(lang) {
-    root.setAttribute("data-lang", lang);
-    root.lang = lang === "zh" ? "zh-CN" : "en";
-    document.title = TITLES[lang];
-  }
-  // the inline head script already picked the language (?lang= > last choice > system language)
-  setLang(root.getAttribute("data-lang") === "en" ? "en" : "zh");
+  // each language has its own page (English /, Chinese /zh/, built by scripts/pages.py);
+  // following the language switch remembers the choice for the next visit
+  var lang = root.getAttribute("data-lang") === "zh" ? "zh" : "en";
+  var base = root.getAttribute("data-base") || "";
   document.getElementById("lang").addEventListener("click", function () {
-    var next = root.getAttribute("data-lang") === "zh" ? "en" : "zh";
-    setLang(next);
-    store(next);
+    try { localStorage.setItem("oi-lang", this.getAttribute("data-lang")); } catch (e) { /* private mode */ }
   });
 
   function size(bytes) {
@@ -33,17 +22,14 @@
     return n;
   }
   function bi(zh, en) {
-    var f = document.createDocumentFragment();
-    f.appendChild(el("span", { class: "zh" }, zh));
-    f.appendChild(el("span", { class: "en" }, en));
-    return f;
+    return document.createTextNode(lang === "zh" ? zh : en);
   }
 
   var toast = document.getElementById("toast");
   var timer;
   function copy(text) {
     var done = function () {
-      toast.textContent = root.getAttribute("data-lang") === "zh" ? "已复制 " + text : "Copied " + text;
+      toast.textContent = (lang === "zh" ? "已复制 " : "Copied ") + text;
       toast.classList.add("show");
       clearTimeout(timer);
       timer = setTimeout(function () { toast.classList.remove("show"); }, 1600);
@@ -72,7 +58,7 @@
       var name = parts[parts.length - 1];
       var folder = parts[parts.length - 2] || "";
       var label = name.replace(/^openinfinity-/, "").replace(new RegExp("^" + folder + "-"), "");
-      var a = el("a", { href: "assets/" + f.path, download: name, title: f.path }, label + " ");
+      var a = el("a", { href: base + "assets/" + f.path, download: name, title: f.path }, label + " ");
       a.appendChild(el("small", null, size(f.bytes)));
       box.appendChild(a);
     });
